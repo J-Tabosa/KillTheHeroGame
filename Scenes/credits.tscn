@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://dvtyewxnf4ym3"]
+
+[ext_resource type="Script" uid="uid://dkjhww6s2vic1" path="res://Scripts/credits.gd" id="1_r18jl"]
+[ext_resource type="AudioStream" uid="uid://dtgqamqojv84m" path="res://Assets/sounds/menu.ogg" id="2_gryuy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_e4ad4"]
+font_size = 18
+font_color = Color(2.055, 2.055, 0, 1)
+outline_size = 6
+outline_color = Color(1, 0, 0, 1)
+
+[node name="Credits" type="Control" unique_id=510989975]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r18jl")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=362627672]
+layout_mode = 0
+offset_left = -24.0
+offset_top = -17.0
+offset_right = 666.0
+offset_bottom = 385.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1052960237]
+texture_filter = 1
+layout_mode = 0
+offset_right = 642.0
+offset_bottom = 358.0
+text = "Credits:
+	           -Programming, Pixel Art and Game Concept Made by Kammish.
+           -Sound Effects of atacks found in FreeSounds.com
+           -Music of Main Menu and In-Game music made by DavidKBD
+           -Total Time of Development = 12 hours and 46 minutes
+
+Thanks for playing my First Game! XD"
+label_settings = SubResource("LabelSettings_e4ad4")
+
+[node name="FadeRect" type="ColorRect" parent="." unique_id=410699490]
+layout_mode = 0
+offset_left = -25.0
+offset_top = -19.0
+offset_right = 682.0
+offset_bottom = 399.0
+color = Color(0, 0, 0, 1)
+
+[node name="menu" type="Button" parent="." unique_id=1219392665]
+layout_mode = 0
+offset_left = 486.0
+offset_top = 273.0
+offset_right = 614.0
+offset_bottom = 331.0
+text = "Back to Title"
+
+[node name="music" type="AudioStreamPlayer2D" parent="." unique_id=549399390]
+stream = ExtResource("2_gryuy")
+parameters/looping = true
+
+[connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]

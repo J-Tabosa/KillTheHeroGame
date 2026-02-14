@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://dnjjvvar132vk"]
+
+[ext_resource type="Script" uid="uid://cn8glaiun53pd" path="res://Scripts/inimigo_5.gd" id="1_usxmg"]
+[ext_resource type="Texture2D" uid="uid://wdnd3jwkalfb" path="res://Assets/inimigos5.png" id="1_uxp6x"]
+[ext_resource type="Texture2D" uid="uid://b3i1p7nl8eqdh" path="res://Assets/Tiny RPG Character Asset Pack v1.03b -Free Soldier&Orc/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Orc/Orc(Split Effects)/Orc.png" id="2_usxmg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fmjp"]
+atlas = ExtResource("2_usxmg")
+region = Rect2(100, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rv34c"]
+atlas = ExtResource("2_usxmg")
+region = Rect2(200, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmkia"]
+atlas = ExtResource("2_usxmg")
+region = Rect2(300, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bic0"]
+atlas = ExtResource("2_usxmg")
+region = Rect2(400, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3umli"]
+atlas = ExtResource("2_usxmg")
+region = Rect2(500, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtwox"]
+atlas = ExtResource("2_usxmg")
+region = Rect2(600, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fc8ny"]
+atlas = ExtResource("2_usxmg")
+region = Rect2(700, 100, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xp86s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_uxp6x")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fmjp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rv34c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmkia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bic0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3umli")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtwox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fc8ny")
+}],
+"loop": true,
+"name": &"Walk2",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4s40l"]
+size = Vector2(17.5, 24.5)
+
+[node name="heroiPoderoso" type="PathFollow2D" unique_id=756598216 groups=["Enemy"]]
+rotates = false
+loop = false
+script = ExtResource("1_usxmg")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=245148274 groups=["Enemy"]]
+position = Vector2(0, -16)
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Area2D" unique_id=617631194]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_xp86s")
+animation = &"Walk"
+
+[node name="Hitbox" type="CollisionShape2D" parent="Area2D" unique_id=551796991 groups=["Enemy"]]
+position = Vector2(-0.75, 4.75)
+shape = SubResource("RectangleShape2D_4s40l")

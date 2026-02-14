@@ -1,0 +1,155 @@
+[gd_scene format=3 uid="uid://et43lyx3ak4b"]
+
+[ext_resource type="Script" uid="uid://d2clgvswq03kw" path="res://Scripts/level.gd" id="1_k5f4k"]
+[ext_resource type="PackedScene" uid="uid://bcv6qknplclsv" path="res://Scenes/ui.tscn" id="1_tumq0"]
+[ext_resource type="Texture2D" uid="uid://cvwgl1r37ie7w" path="res://Assets/background1.png" id="2_8c0lf"]
+[ext_resource type="Texture2D" uid="uid://dmw716y3orphk" path="res://Assets/background2.png" id="3_754fn"]
+[ext_resource type="Texture2D" uid="uid://csifhucuyvbex" path="res://Assets/background3.png" id="4_bvt00"]
+[ext_resource type="Texture2D" uid="uid://dua2k8sa8gmwx" path="res://Assets/background4.png" id="5_oqgf2"]
+[ext_resource type="Texture2D" uid="uid://vcu74ckyqtgs" path="res://Assets/background5.png" id="6_qxfql"]
+[ext_resource type="Texture2D" uid="uid://bqfqcj654pv3q" path="res://icon.svg" id="8_754fn"]
+[ext_resource type="Shader" uid="uid://dkofuobswhh2a" path="res://Scripts/level.gdshader" id="9_bvt00"]
+[ext_resource type="AudioStream" uid="uid://1y8h0deo2haf" path="res://Assets/sounds/music.ogg" id="10_oqgf2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ha31o"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("2_8c0lf")
+}, {
+"duration": 3.0,
+"texture": ExtResource("3_754fn")
+}, {
+"duration": 3.0,
+"texture": ExtResource("4_bvt00")
+}, {
+"duration": 3.0,
+"texture": ExtResource("5_oqgf2")
+}, {
+"duration": 3.0,
+"texture": ExtResource("6_qxfql")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Environment" id="Environment_8c0lf"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 8.0
+glow_hdr_scale = 0.0
+
+[sub_resource type="Curve2D" id="Curve2D_k5f4k"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 180, 0, 0, 0, 0, 200, 180, 0, 0, 0, 0, 200, 80, 0, 0, 0, 0, 300, 80, 0, 0, 0, 0, 300, 260, 0, 0, 0, 0, 440, 260, 0, 0, 0, 0, 440, 160, 0, 0, 0, 0, 580, 160, 0, 0, 0, 0, 580, 80, 0, 0, 0, 0, 650, 80)
+}
+point_count = 10
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_bvt00"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_oqgf2"]
+width = 640
+height = 360
+noise = SubResource("FastNoiseLite_bvt00")
+seamless = true
+seamless_blend_skirt = 0.75
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oqgf2"]
+shader = ExtResource("9_bvt00")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_oqgf2")
+shader_parameter/density = 0.25
+shader_parameter/speed = Vector2(0.02, 0.01)
+
+[node name="level" type="Node2D" unique_id=122914489]
+script = ExtResource("1_k5f4k")
+
+[node name="Background" type="AnimatedSprite2D" parent="." unique_id=1381784663]
+texture_filter = 1
+position = Vector2(326.50006, 179)
+scale = Vector2(1.3027345, 1.2847223)
+sprite_frames = SubResource("SpriteFrames_ha31o")
+frame_progress = 0.64573866
+
+[node name="chama" type="Sprite2D" parent="Background" unique_id=1142472060]
+self_modulate = Color(18.892157, 6.9192314, 0, 0.1764706)
+position = Vector2(16.503738, 20.237854)
+scale = Vector2(0.03298355, 0.036486484)
+texture = ExtResource("8_754fn")
+
+[node name="chama2" type="Sprite2D" parent="Background" unique_id=903682645]
+self_modulate = Color(18.892157, 6.9192314, 0, 0.1764706)
+position = Vector2(109.38527, -56.82161)
+scale = Vector2(0.03298355, 0.036486484)
+texture = ExtResource("8_754fn")
+
+[node name="chama3" type="Sprite2D" parent="Background" unique_id=1711121762]
+self_modulate = Color(18.892157, 6.9192314, 0, 0.1764706)
+position = Vector2(-21.109451, -121.42701)
+scale = Vector2(0.03298355, 0.036486484)
+texture = ExtResource("8_754fn")
+
+[node name="chama4" type="Sprite2D" parent="Background" unique_id=628340895]
+self_modulate = Color(18.892157, 6.9192314, 0, 0.1764706)
+position = Vector2(-190.75264, -42.8108)
+scale = Vector2(0.03298355, 0.036486484)
+texture = ExtResource("8_754fn")
+
+[node name="chama5" type="Sprite2D" parent="Background" unique_id=1155041469]
+self_modulate = Color(18.892157, 6.9192314, 0, 0.1764706)
+position = Vector2(218.38673, -120.648636)
+scale = Vector2(0.03298355, 0.036486484)
+texture = ExtResource("8_754fn")
+
+[node name="ShaderLum" type="WorldEnvironment" parent="Background" unique_id=1175298421]
+environment = SubResource("Environment_8c0lf")
+
+[node name="ColorRect" type="ColorRect" parent="Background" unique_id=549168490]
+offset_left = -262.14093
+offset_top = -149.44864
+offset_right = 259.07037
+offset_bottom = 157.23242
+color = Color(0.24456427, 0.017430156, 0.022296138, 0.36862746)
+
+[node name="UI" parent="." unique_id=1010543914 instance=ExtResource("1_tumq0")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1447561038]
+anchor_mode = 0
+
+[node name="WaveTimer" type="Timer" parent="." unique_id=2079240565]
+
+[node name="EnemyTimer" type="Timer" parent="." unique_id=1745750537]
+
+[node name="EnemyPath" type="Path2D" parent="." unique_id=1332939893]
+position = Vector2(-7, -6.5555725)
+scale = Vector2(1.0446154, 1.0444444)
+curve = SubResource("Curve2D_k5f4k")
+
+[node name="Clouds" type="ParallaxBackground" parent="." unique_id=2113366230]
+layer = 2
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Clouds" unique_id=1519022926]
+motion_mirroring = Vector2(640, 360)
+
+[node name="ColorRect" type="ColorRect" parent="Clouds/ParallaxLayer" unique_id=1106421687]
+material = SubResource("ShaderMaterial_oqgf2")
+offset_left = -359.0
+offset_top = -131.0
+offset_right = 281.0
+offset_bottom = 229.0
+
+[node name="FadeOut" type="ColorRect" parent="." unique_id=1666515926]
+offset_left = -23.0
+offset_top = -25.0
+offset_right = 674.0
+offset_bottom = 435.0
+color = Color(0, 0, 0, 1)
+
+[node name="music" type="AudioStreamPlayer2D" parent="." unique_id=2047788934]
+stream = ExtResource("10_oqgf2")
+volume_db = -30.0
+parameters/looping = true
+
+[connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
+[connection signal="timeout" from="EnemyTimer" to="." method="_on_enemy_timer_timeout"]

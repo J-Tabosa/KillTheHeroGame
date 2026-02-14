@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bo1c3jstd6ago"]
+
+[ext_resource type="Script" uid="uid://cebvcsjsku01g" path="res://Scripts/bala_2.gd" id="1_yy7i1"]
+[ext_resource type="Texture2D" uid="uid://bk2ye03lftmjm" path="res://Assets/Tiny RPG Character Asset Pack v1.03b -Free Soldier&Orc/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Arrow(Projectile)/Arrow01(32x32).png" id="2_7xjxh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_743kp"]
+radius = 3.0
+height = 19.9839
+
+[node name="Bala_2" type="Area2D" unique_id=821593970 groups=["Projectile"]]
+script = ExtResource("1_yy7i1")
+
+[node name="Hurtbox" type="CollisionShape2D" parent="." unique_id=408408775]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_743kp")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=648494995]
+modulate = Color(1, 0.16000003, 0.16000003, 1)
+self_modulate = Color(18.892157, 13.324747, 13.324747, 0.7294118)
+texture = ExtResource("2_7xjxh")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=240158589]
+position = Vector2(-0.5, 0.5)
+scale = Vector2(0.95, 0.25)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

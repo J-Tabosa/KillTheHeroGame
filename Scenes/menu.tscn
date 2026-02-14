@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://dmcfitr2ykv26"]
+
+[ext_resource type="Script" uid="uid://cwgp0vclo1l5e" path="res://Scripts/menu.gd" id="1_1rerr"]
+[ext_resource type="Texture2D" uid="uid://5n2iapg6jd0o" path="res://Assets/Full Spritesheet/sword.png" id="2_cayip"]
+[ext_resource type="AudioStream" uid="uid://dtgqamqojv84m" path="res://Assets/sounds/menu.ogg" id="2_xhh6f"]
+
+[node name="menu" type="Control" unique_id=15786547]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1rerr")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=585836468]
+layout_mode = 0
+offset_right = 689.0
+offset_bottom = 401.0
+texture = ExtResource("2_cayip")
+
+[node name="Fade" type="ColorRect" parent="." unique_id=1940008176]
+layout_mode = 0
+offset_right = 694.0
+offset_bottom = 407.0
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="HBoxContainer" parent="." unique_id=1412129545]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -286.0
+offset_top = 109.0
+offset_right = -41.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="Play" type="Button" parent="VBoxContainer" unique_id=703246250]
+layout_mode = 2
+text = "Play"
+
+[node name="Credits" type="Button" parent="VBoxContainer" unique_id=1642642598]
+layout_mode = 2
+text = "Credits"
+
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=1894100270]
+layout_mode = 2
+text = "Quit
+"
+
+[node name="music" type="AudioStreamPlayer2D" parent="." unique_id=316203676]
+stream = ExtResource("2_xhh6f")
+volume_db = 2.0
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

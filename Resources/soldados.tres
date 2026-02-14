@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://0f4ujmnn07fg"]
+
+[ext_resource type="Script" uid="uid://bns8i7ofxmqsp" path="res://Scripts/inimigoData.gd" id="1_u5mb3"]
+
+[resource]
+script = ExtResource("1_u5mb3")
+enemy_name = "Soldados"
+health = 10
+metadata/_custom_type_script = "uid://bns8i7ofxmqsp"

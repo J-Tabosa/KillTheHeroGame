@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://bcv6qknplclsv"]
+
+[ext_resource type="Script" uid="uid://cl6s1wmfqdaft" path="res://Scripts/ui.gd" id="1_qdvrb"]
+[ext_resource type="Texture2D" uid="uid://bk2ye03lftmjm" path="res://Assets/Tiny RPG Character Asset Pack v1.03b -Free Soldier&Orc/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Arrow(Projectile)/Arrow01(32x32).png" id="2_nf4gj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qdvrb"]
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="UI" type="CanvasLayer" unique_id=1010543914]
+script = ExtResource("1_qdvrb")
+
+[node name="backBar" type="ColorRect" parent="." unique_id=1790842305]
+texture_filter = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 18.0
+offset_top = 123.0
+offset_right = -22.0
+offset_bottom = 178.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="FrontBar" type="ColorRect" parent="." unique_id=1307564815]
+texture_filter = 1
+anchors_preset = -1
+anchor_left = 0.0390625
+anchor_top = 0.855556
+anchor_right = 0.957812
+anchor_bottom = 0.980556
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.443137, 0.345098, 1)
+
+[node name="UI Label" type="VBoxContainer" parent="." unique_id=1927483477]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 137.0
+offset_bottom = 97.0
+metadata/_edit_group_ = true
+
+[node name="Cash" type="Label" parent="UI Label" unique_id=1671790689]
+layout_mode = 2
+text = "Gold: "
+label_settings = SubResource("LabelSettings_qdvrb")
+
+[node name="WaveCount" type="Label" parent="UI Label" unique_id=1616803598]
+layout_mode = 2
+text = "Wave: 1"
+label_settings = SubResource("LabelSettings_qdvrb")
+
+[node name="EnemiesLeft" type="Label" parent="UI Label" unique_id=475298630]
+layout_mode = 2
+text = "Enemies Left: 0"
+label_settings = SubResource("LabelSettings_qdvrb")
+
+[node name="Vida" type="Label" parent="UI Label" unique_id=1425892401]
+layout_mode = 2
+text = "Life: 100"
+label_settings = SubResource("LabelSettings_qdvrb")
+
+[node name="Torre1" type="TextureButton" parent="." unique_id=316119873]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.831
+anchor_bottom = 0.642
+offset_left = -295.0
+offset_top = 128.0
+offset_right = -459.84
+offset_bottom = 121.88
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Torre1" unique_id=579924096]
+position = Vector2(24, 20)
+rotation = -0.678933
+scale = Vector2(2.24701, 2.24853)
+texture = ExtResource("2_nf4gj")
+
+[node name="Label" type="Label" parent="Torre1" unique_id=361703013]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 21.0
+offset_right = 65.0
+offset_bottom = 70.0
+text = "25$
+"
+
+[node name="Torre2" type="TextureButton" parent="." unique_id=1293976887]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.831
+anchor_bottom = 0.642
+offset_left = -215.0
+offset_top = 129.0
+offset_right = -379.84003
+offset_bottom = 122.87999
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Torre2" unique_id=1336304578]
+self_modulate = Color(5.4700704, 0, 0, 1)
+position = Vector2(24, 20)
+rotation = -0.678933
+scale = Vector2(2.24701, 2.24853)
+texture = ExtResource("2_nf4gj")
+
+[node name="Label" type="Label" parent="Torre2" unique_id=706499459]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 21.0
+offset_right = 65.0
+offset_bottom = 70.0
+text = "100$
+"
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="pressed" from="Torre1" to="." method="_on_torre_1_pressed"]
+[connection signal="pressed" from="Torre2" to="." method="_on_torre_2_pressed"]

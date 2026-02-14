@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://c3uhllyyomg7b"]
+
+[ext_resource type="Script" uid="uid://cuih38vokjt1m" path="res://Scripts/info.gd" id="1_oj2s1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ugdrp"]
+font_size = 22
+font_color = Color(2.055, 2.055, 0, 1)
+outline_size = 6
+outline_color = Color(1, 0, 0, 1)
+
+[node name="Info" type="Control" unique_id=454357457]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oj2s1")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1390053465]
+layout_mode = 0
+offset_left = -24.0
+offset_top = -17.0
+offset_right = 666.0
+offset_bottom = 385.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=2035519680]
+texture_filter = 1
+layout_mode = 0
+offset_left = 24.0
+offset_top = 56.0
+offset_right = 713.0
+offset_bottom = 414.0
+text = "Everyone knows the story of the great hero 
+who defeated the Demon King… but have you ever 
+wondered how it truly  happened? Step into the Demon
+King’s point of view and endure for as long as you can.
+If you manage to withstand the 20 hordes of the human
+army, this tale will be glorious even in its fall.
+Command your troops and crush the mortals.
+"
+label_settings = SubResource("LabelSettings_ugdrp")
+
+[node name="FadeRect" type="ColorRect" parent="." unique_id=1663747850]
+layout_mode = 0
+offset_left = -25.0
+offset_top = -19.0
+offset_right = 682.0
+offset_bottom = 399.0
+color = Color(0, 0, 0, 1)
+
+[node name="Timer" type="Timer" parent="." unique_id=1367603300]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
